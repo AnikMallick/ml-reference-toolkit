@@ -1,0 +1,101 @@
+/* src/styles/theme.css
+   ─────────────────────────────────────────────────────────────────────────
+   SKETCHBOOK DARK — the single design system for the entire ML Reference
+   Library. Every page imports this via src/index.css. No page should ever
+   hardcode a hex colour — use these variables everywhere.
+   ───────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+
+  /* ── BACKGROUNDS ────────────────────────────────────────────────────────
+     Slightly warm (not pure blue-black) to evoke aged paper in darkness.
+     Each step up adds a small amount of warmth and lightness.
+  ── */
+  --bg-base:      #0e0d0c;   /* Page canvas — darkest layer */
+  --bg-surface:   #131210;   /* Cards, panels sitting on the canvas */
+  --bg-elevated:  #1a1916;   /* Hover state, raised elements */
+  --bg-overlay:   #222018;   /* Tooltips, dropdowns, active rows */
+
+  /* ── TEXT ───────────────────────────────────────────────────────────────
+     Four levels of hierarchy. Primary is warm off-white (parchment), not
+     bright white — that would feel clinical. Tertiary and dim are used for
+     metadata, hints, and structural chrome that shouldn't compete with content.
+  ── */
+  --text-primary:   #d8d4cc;   /* Main content — warm off-white */
+  --text-secondary: #8a8478;   /* Body copy, descriptions */
+  --text-tertiary:  #504c44;   /* Hints, timestamps, labels */
+  --text-dim:       #2e2b26;   /* Near-invisible structural chrome */
+
+  /* ── BORDERS ────────────────────────────────────────────────────────────
+     Warm-tinted — using cool grey borders with warm backgrounds looks jarring.
+     Use faint for dividers between sections, subtle for card outlines,
+     default for emphasis borders, strong for active/focused elements.
+  ── */
+  --border-faint:   #171511;   /* Barely-there section dividers */
+  --border-subtle:  #201e1a;   /* Default card and panel borders */
+  --border-default: #2c2924;   /* Visible, readable borders */
+  --border-strong:  #3a362e;   /* Active state, focus, emphasis */
+
+  /* ── MUTED ACCENTS ──────────────────────────────────────────────────────
+     These are ink-wash colours — each has the hue of a traditional ink but
+     desaturated and darkened so it reads as "restrained" not "glowing neon".
+     Each colour maps to a specific domain throughout the app.
+  ── */
+  --accent-amber:   #8a7248;   /* Playbook — aged paper / golden ink       */
+  --accent-teal:    #2e7268;   /* EDA — slate-blue ink                     */
+  --accent-sage:    #3e6e52;   /* Features — botanical green ink           */
+  --accent-steel:   #3a5e7a;   /* sklearn — steel-blue annotation ink      */
+  --accent-rose:    #784054;   /* Problems — warning / red ink             */
+  --accent-violet:  #5a4880;   /* PyTorch — deep violet ink                */
+  --accent-seafoam: #2e6660;   /* MLOps — teal deployment ink              */
+  --accent-neutral: #5a5448;   /* Generic use, neutral information         */
+
+  /* ── TINTED FILLS ───────────────────────────────────────────────────────
+     Very low-opacity versions of each accent, used as badge backgrounds,
+     active nav backgrounds, and subtle row highlights.
+     The naming convention is --fill-[name] for each --accent-[name].
+  ── */
+  --fill-amber:   rgba(138, 114,  72, 0.12);
+  --fill-teal:    rgba( 46, 114, 104, 0.12);
+  --fill-sage:    rgba( 62, 110,  82, 0.12);
+  --fill-steel:   rgba( 58,  94, 122, 0.12);
+  --fill-rose:    rgba(120,  64,  84, 0.12);
+  --fill-violet:  rgba( 90,  72, 128, 0.12);
+  --fill-seafoam: rgba( 46, 102,  96, 0.12);
+  --fill-neutral: rgba( 90,  84,  72, 0.12);
+
+  /* ── TYPOGRAPHY ─────────────────────────────────────────────────────────
+     Three roles: display (headings, quotes), body (prose, UI text),
+     and mono (code, metrics, labels, version numbers).
+  ── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── SPACING & RADIUS ───────────────────────────────────────────────────
+     Consistent radius scale used everywhere. Using named values (sm/md/lg)
+     rather than pixel literals means you can retune the whole app's
+     "roundness" by changing three numbers.
+  ── */
+  --r-xs:  3px;
+  --r-sm:  5px;
+  --r-md:  8px;
+  --r-lg: 12px;
+  --r-xl: 18px;
+
+  /* ── HEADER HEIGHT ──────────────────────────────────────────────────────
+     Centralised so every sticky element can use calc(var(--header-h) + X)
+     instead of hardcoding its offset. Change this one value if the header
+     height ever changes and all sticky offsets update automatically.
+  ── */
+  --header-h: 44px;
+
+  /* ── TRANSITIONS ────────────────────────────────────────────────────────
+     Two speeds: fast for hover/focus micro-interactions,
+     base for larger layout transitions.
+  ── */
+  --t-fast: 130ms ease;
+  --t-base: 240ms ease;
+}
